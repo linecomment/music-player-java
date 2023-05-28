@@ -7,8 +7,29 @@ spring:
     url: jdbc:mysql://localhost:3306/music_player?useSSL=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  # 邮箱授权码（qq）
+  mail:
+    host: smtp.qq.com
+    port: 465
+    password: tznikpogskmzdcgj
+    username: 3062876335@qq.com
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
+            port: 465
+          auth: true
+          ssl:
+            trust: smtp.qq.com
+          starttls:
+            enable: true
+            required: true
 # mapper 映射文件位置
 mybatis:
   mapper-locations: mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
+
+
