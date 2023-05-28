@@ -4,8 +4,8 @@ import lombok.Data;
 
 /**
  * @author linecomment
- * @date 2023/5/28 15:31:47
+ * @date 2023/5/28 15:32:00
  */
 @Data
-public class Song {
+public class SysLike {
 }

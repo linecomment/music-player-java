@@ -6,16 +6,18 @@ package linecomment.music.common;
  * @date 2023/5/28 10:17:14
  */
 public enum StatusEnum {
-    /** 1 开头 成功， 4 开头 失败 */
+    /** 2 开头 成功， 4 开头 失败 */
     LOGIN_SUCCESS(20001,"登入成功"),
     REGISTER_SUCCESS(20002,""),
-    ILLEGAL_PARAM(40001,"非法参数");
+    ILLEGAL_PARAM(40001,"非法参数"),
+    NO_LOGIN(40002,"未登入");
 
     private int code;
     private String value;
 
     StatusEnum(int i, String s) {
-
+        this.code = i;
+        this.value = s;
     }
 
     public int getCode() {

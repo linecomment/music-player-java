@@ -14,7 +14,7 @@ public class JwtUtil {
 
     private static final String SECRET = "linecomment";
 
-    public static  String generateToken(String userId,long expireTime){
+    public static  String generateToken(long userId,long expireTime){
         Map<String,Object> claims = new HashMap<>(10);
         claims.put("userId",userId);
         JwtBuilder jwtBuilder = Jwts.builder()

@@ -10,13 +10,15 @@ import cn.hutool.core.util.RandomUtil;
  */
 public class VerifyCodeUtil {
 
+    private static final int DIGIT = 6;
+
     /**
      * 生成随机六位验证码
      * @return String
      */
     public static String getVerifyCode(){
         StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0; i < 6; i++){
+        for(int i = 0; i < DIGIT; i++){
             stringBuilder.append(RandomUtil.randomInt(10));
         }
         return stringBuilder.toString();

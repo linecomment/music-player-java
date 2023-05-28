@@ -1,11 +1,12 @@
 package linecomment.music.entities.vo.param;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.validation.annotation.Validated;
 
 import java.io.Serializable;
 
@@ -14,11 +15,11 @@ import java.io.Serializable;
  * @date 2023/5/28 14:37:33
  */
 @Data
-@ToString
-@JsonSerialize
+@AllArgsConstructor
 public class RegisterParam implements Serializable {
-    @Email(message = "邮箱格式错误")
-    private String email;
+    @NotBlank(message = "账号不能为空")
+    @Pattern(regexp = "^1[3-9]\\d{9}$|^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+",message = "账号格式错误")
+    private String account;
     @NotBlank(message = "验证码不能为空")
     @Length( message = "验证码错误",min=6,max=6)
     private String verifyCode;

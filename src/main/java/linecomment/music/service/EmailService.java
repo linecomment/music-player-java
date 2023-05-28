@@ -10,6 +10,9 @@ import jakarta.servlet.http.HttpSession;
 public interface EmailService {
     /**
      * 发送邮箱验证码
+     * @param toEmail 收信邮箱
+     * @param session session
+     * @return String code
      */
     String sendEmailCode(String toEmail, HttpSession session);
 }
