@@ -5,10 +5,10 @@ package linecomment.music.entities.vo;
  * @date 2023/5/28 10:09:21
  */
 public class ResultVO<T> {
-    private int code;
+    private final Integer code;
 
-    private String message;
-    private T data;
+    private final String message;
+    private final T data;
 
 
     public ResultVO(int code, String message, T data) {

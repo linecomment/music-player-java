@@ -11,6 +11,8 @@ spring:
   mail:
     host: smtp.qq.com
     port: 465
+    username: xxxxx
+    password: xxxxxx
     properties:
       mail:
         smtp:
@@ -29,5 +31,7 @@ mybatis:
   mapper-locations: mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
-
+# 日志配置文件路径
+logging:
+  config: classpath:logback.xml
 
