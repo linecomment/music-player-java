@@ -1,5 +1,6 @@
 package linecomment.music.mapper;
 
+import linecomment.music.entities.dao.SysUser;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -10,7 +11,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface SysUserMapper {
     /**
      * 新增新用户
-     * @return
+     * @param sysUser 用户对象
+     * @return 1
      */
-    int addUser();
+    int addUser(SysUser sysUser);
 }

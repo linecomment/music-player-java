@@ -3,6 +3,7 @@ package linecomment.music.service.impl;
 import jakarta.servlet.http.HttpSession;
 import linecomment.music.exception.BusinessException;
 import linecomment.music.service.EmailService;
+import linecomment.music.utils.RedisUtil;
 import linecomment.music.utils.VerifyCodeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,6 +11,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,6 +31,8 @@ public class EmailServiceImpl implements EmailService {
 
     @Autowired
     private JavaMailSender mailSender;
+    @Autowired
+    private RedisUtil redisUtil;
 
 
     /**
@@ -41,7 +45,9 @@ public class EmailServiceImpl implements EmailService {
             // todo 抛出邮箱格式错误
             throw new BusinessException(200,"邮箱格式错误");
         }
-        return sendEmailCode(fromEmail,toEmail);
+        String verifyCode = sendEmailCode(fromEmail,toEmail);
+        redisUtil.set(toEmail,verifyCode,5, TimeUnit.MINUTES);
+        return verifyCode;
     }
 
     private String sendEmailCode(String fromEmail,String toEmail){

@@ -10,7 +10,8 @@ public enum StatusEnum {
     LOGIN_SUCCESS(20001,"登入成功"),
     REGISTER_SUCCESS(20002,""),
     ILLEGAL_PARAM(40001,"非法参数"),
-    NO_LOGIN(40002,"未登入");
+    NO_LOGIN(40002,"未登入"),
+    VerifyCodeError(40003,"邮箱验证码错误");
 
     private int code;
     private String value;

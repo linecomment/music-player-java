@@ -40,8 +40,8 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    public ResultVO<Object> handlerException(){
-        return ResultVO.error(50000,"出错了");
+    public ResultVO<Object> handlerException(Exception e){
+        return ResultVO.error(50000,e.getMessage());
     }
 
 
